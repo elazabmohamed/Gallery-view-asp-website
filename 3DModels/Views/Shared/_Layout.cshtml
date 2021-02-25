@@ -1,42 +1,132 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+
+    <body style="padding: 0; ">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            @if (Session["Admin_Email"] == null)
+            {
+                @Html.ActionLink("3D MODELS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            }
+            else
+            {
+                @Html.ActionLink("3D MODELS", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+            }
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                @if (Session["Admin_Email"] == null)
+                {
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">@Html.ActionLink("Home", "Index", "Home")<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Models", "ViewModels", "Home")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("About", "About", "Home")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">@Html.ActionLink("Contact", "Contact", "Home")</a>
+                    </li>
+                    @using (Html.BeginForm("Search", "Home"))
+                    {
+                        @Html.AntiForgeryToken()
+                        <li class="nav-item">
+                            <a class="form-inline my-2 my-lg-0" style="display:inline;">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                            </a>
+                        </li>
+                    }
+                    </ul>
+                    <ul class="navbar-nav mr-auto navbar-right">
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0" action="@Url.Action("SignIn", "Home")">
+                                <button class="btn btn-secondary my-2 my-sm-0">Sign in</button>
+                            </form>
+                        </li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link"></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link">@Html.ActionLink("Home", "Index", "Admin")<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">@Html.ActionLink("Models", "ViewModels", "Admin")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">@Html.ActionLink("Add Models", "Models", "Admin")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">@Html.ActionLink("About", "About", "Admin")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">@Html.ActionLink("Contact", "Contact", "Admin")</a>
+                        </li>
+                        @using (Html.BeginForm("Search", "Admin"))
+                        {
+                            @Html.AntiForgeryToken()
+                            <li class="nav-item">
+                                <a class="form-inline my-2 my-lg-0" style="display:inline;">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+                                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav mr-auto navbar-right">
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0">
+                                <button class="btn btn-secondary my-2 my-sm-0">@Html.ActionLink("Hi! " + Session["Admin_Email"].ToString(), "Index", "Admin")</button>
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0">
+                                <button class="btn btn-outline-danger">@Html.ActionLink("Log off", "LogOff", "Admin")</button>
+                            </form>
+                        </li>
+
+                    </ul>
+
+                }
+
+            </div>
+        </nav>
+
+        <div class="container body-content" style="padding-top: 50px;">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Mazen's 3D MODEL PROJECT</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+    </body>
+
 </html>
+

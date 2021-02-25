@@ -1,0 +1,13 @@
+﻿@model _3DModels.Models.Model
+
+<h3>Are you sure you want to delete the model '@TempData["NAME_FOR_MODEL"]'<br> with this ID: @TempData["ID_FOR_MODEL"] ?</h3>
+<div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Models", "Index")
+        </div>
+    }
+</div>

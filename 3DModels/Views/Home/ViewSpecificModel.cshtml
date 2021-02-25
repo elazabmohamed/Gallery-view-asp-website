@@ -1,0 +1,44 @@
+﻿@model IEnumerable<_3DModels.Models.Model>
+
+<h5 class="col-md-6 left">@Html.ActionLink("Back to Models", "ViewModels")</h5>
+
+@foreach (var item in Model)
+{
+    ViewBag.Title = "Model - " + item.Modelid;
+
+
+    <div class="row">
+        <div class="container" style="display: flex;">
+            <div class="jumbotron col-md-6" style="max-width: 50%; border:10px;">
+                <h1 class="display-3 ">@Html.DisplayFor(modelItem => item.Name)</h1>
+                <p class="lead">
+                    <ul class=" my-4" style="max-width: 300px; display: inline;">
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Platform) : @Html.DisplayFor(modelItem => item.Platform)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Render) : @Html.DisplayFor(modelItem => item.Render)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Size) : @Html.DisplayFor(modelItem => item.Size)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Color) : @Html.DisplayFor(modelItem => item.Color)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Style) : @Html.DisplayFor(modelItem => item.Style)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Price) : @Html.DisplayFor(modelItem => item.Price)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Category) : @Html.DisplayFor(modelItem => item.Category)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Tag) : @Html.DisplayFor(modelItem => item.Tag)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Color) : @Html.DisplayFor(modelItem => item.Color)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Material) : @Html.DisplayFor(modelItem => item.Material)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(modelItem => item.Description)</li>
+                    </ul>
+                </p>
+                <hr class="my-4">
+                <p class="lead  text-center">
+                    <a href="@item.FilePath" class="card-link" download>Download Here!</a>
+                </p>
+            </div>
+
+
+            <div class="jumbotron col-md-6 right " style="max-width: 50%; border:10px">
+                <h1 class="lead" style="margin-top:50px;">ID: @item.Modelid</h1>
+                <!--  43.5px  -->
+                <img style="height:400px; width:500px; display: block; margin-top:104px; " src=@item.ImagePath class="spells zoom " alt="Card image">
+            </div>
+
+        </div>
+    </div>
+}

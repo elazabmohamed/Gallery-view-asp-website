@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="d047fec0-5ffd-48e4-b5d7-a0471c2036a8" ChangeDateTime="07/20/2020 17:57:28">
+    <Property Name="ElementName" Value="[dbo].[Model].[Model]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Model]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Modelid" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ed84fba9-c67a-44ae-a3de-d5e23cf917a3" ChangeDateTime="07/23/2020 16:36:57">
+    <Property Name="ElementName" Value="[dbo].[Model].[ImageFile]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Model]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Platform" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6019df1d-e4f6-41ea-8f5f-c1aa2b60b3b2" ChangeDateTime="07/23/2020 16:37:20">
+    <Property Name="ElementName" Value="[dbo].[Model].[FileLink]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Model]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Category" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ec239d33-de05-4055-afc2-746b8fd07832" ChangeDateTime="07/23/2020 16:37:35">
+    <Property Name="ElementName" Value="[dbo].[Model].[Category]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Model]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Material" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="012c454b-0cb6-4361-becf-c9ea68ae2479" ChangeDateTime="07/24/2020 18:05:21">
+    <Property Name="ElementName" Value="[dbo].[Model].[ImagePath]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Model]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FileName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="030d8f3f-c90b-4f2f-9092-aa3847a2b1bc" ChangeDateTime="07/24/2020 18:05:30">
+    <Property Name="ElementName" Value="[dbo].[Model].[FilePath]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Model]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ImagePath" />
+  </Operation>
+</Operations>

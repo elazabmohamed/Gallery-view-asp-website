@@ -1,0 +1,67 @@
+﻿@model IEnumerable<_3DModels.Models.Model>
+
+@{
+    ViewBag.Title = "Models";
+}
+
+<h2>Models</h2>
+
+    @foreach (var item in Model)
+    {
+        <table class="table" style="max-width: 300px; display: inline;">
+            <tr>
+                <td >
+                    <div class="card mb-3" style="max-width: 300px;">
+                        <h3 class="card-header">@Html.DisplayFor(modelItem => item.Name)</h3>
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-muted">@Html.DisplayFor(modelItem => item.Tag)</h6>
+                        </div>
+                        <div class="">
+                            <a href='@Url.Action("ViewSpecificModel", "Home", new { id = item.Modelid })'>
+                                <img style="height: 300px; width: 100%; display: block;" src=@item.ImagePath class="spells zoom " alt="Card image">
+                            </a>
+                        </div>
+                            <div class="card-body">
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">@Html.DisplayNameFor(model => model.Platform) : @Html.DisplayFor(modelItem => item.Platform)</li>
+                                <li class="list-group-item">@Html.DisplayNameFor(model => model.Render) : @Html.DisplayFor(modelItem => item.Render)</li>
+                                <li class="list-group-item">@Html.DisplayNameFor(model => model.Size) : @Html.DisplayFor(modelItem => item.Size)</li>
+                            </ul>
+                            <div class="card-body">
+                                <a href="@item.FilePath" class="card-link" download>Download Here!</a>
+                                <a class="card-link"> @Html.ActionLink("Details", "ViewSpecificModel", new { id = item.Modelid })</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                2 days ago
+                            </div>
+                        </div>
+                    </td>
+            </tr>
+        </table>
+     }
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
